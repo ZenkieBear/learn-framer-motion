@@ -11,17 +11,14 @@ import {
 import Head from "next/head";
 import styles from './index.module.scss';
 import utilStyles from '@/styles/utils.module.scss';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuToggle } from "./MenuToggle";
 import clsx from "clsx";
 import ScrollAnimation from "./ScrollAnimatoin";
 import CircleIndicator from "./ScrollTrigger";
-import styled from "styled-components";
 import { initialTabs as tabs } from "./ingredients";
 import { getIndex, useFlubber } from "./use-flubber";
 import { angular, react, solid, svelte, vue } from "./paths";
-import { BrowserRouter } from "react-router-dom";
-import App from "./routerpages/App";
 
 const examples = () => {  
   return (
