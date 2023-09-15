@@ -416,8 +416,7 @@ const PathMorphing = () => {
     });
     
     return () => animation.stop();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathIndex]);
+  }, [pathIndex, progress]);
 
   return (
     <svg width={240} height={240}>
