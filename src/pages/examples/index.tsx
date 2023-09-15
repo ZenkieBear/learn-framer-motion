@@ -12,13 +12,13 @@ import Head from "next/head";
 import styles from './index.module.scss';
 import utilStyles from '@/styles/utils.module.scss';
 import { useEffect, useState } from "react";
-import { MenuToggle } from "./MenuToggle";
+import MenuToggle from "./MenuToggle";
 import clsx from "clsx";
 import ScrollAnimation from "./ScrollAnimatoin";
 import CircleIndicator from "./ScrollTrigger";
-import { initialTabs as tabs } from "./ingredients";
-import { getIndex, useFlubber } from "./use-flubber";
-import { angular, react, solid, svelte, vue } from "./paths";
+import { initialTabs as tabs } from "@/lib/examples/ingredients";
+import { getIndex, useFlubber } from "@/lib/examples/use-flubber";
+import { angular, react, solid, svelte, vue } from "@/lib/examples/paths";
 
 const examples = () => {  
   return (

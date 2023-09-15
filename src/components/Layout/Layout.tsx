@@ -1,4 +1,4 @@
-import routes from '@/pages/routes';
+import routes from '@/lib/routes';
 import Link from 'next/link';
 import style from './Layout.module.scss';
 

@@ -21,7 +21,7 @@ const my = styled.button`
   outline: 0;
   cursor: pointer;
 `;
-export const MenuToggle = ({ toggle }: any) => {
+const MenuToggle = ({ toggle }: any) => {
   return (
     <button onClick={toggle}>
       {/* <svg width="23" height="23" viewBox="0 0 23 23">
@@ -49,3 +49,4 @@ export const MenuToggle = ({ toggle }: any) => {
     </button>
   )
 };
+export default MenuToggle;
