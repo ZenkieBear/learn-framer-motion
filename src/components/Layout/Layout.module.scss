@@ -1,0 +1,51 @@
+@use '@/styles/colors.scss';
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+}
+.main {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+  flex: 1;
+}
+.navbar {
+  position: relative;
+  width: 200px;
+  min-height: 100%;
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(lighten($color: colors.$clr-primary, $amount: 20),
+      colors.$clr-second);
+  }
+
+  .link,
+  .parentTitle {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+
+    &:hover {
+      background: lighten($color: colors.$clr-second, $amount: 35);
+    }
+  }
+  .parent {
+    ul {
+      margin: 10px;
+    }
+    .link {
+      margin-left: 1em;
+    }
+  } 
+}

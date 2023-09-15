@@ -1,0 +1,118 @@
+@use '@/styles/colors.scss';
+
+.ball {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: colors.$clr-primary;
+  text-align: center;
+  line-height: 100px;
+}
+.dragbox {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(darken($color: colors.$clr-primary, $amount: 30), .6);
+  border-radius: 15px;
+
+  .ball {
+    border-radius: 15px;
+  }
+}
+.scrollY {
+  overflow-y: scroll;
+}
+.textbox {
+  margin: 0 2em;
+  color: white;
+  overflow-y: visible;
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 0 100vw 100vw 0;
+  background: colors.$clr-primary;
+  transform-origin: 0%;
+}
+.switch {
+  width: 160px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+
+  & .handle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 40px;
+  }
+
+  &[data-is-on="true"] {
+    justify-content: flex-end;
+  }
+}
+
+.tabs {
+  width: 360px;
+  height: 50px;
+  padding: 5px 5px 0;
+  border-radius: 10px 10px 0 0;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  display: flex;
+  flex-direction: column;
+
+  & ul {
+    display: flex;
+    line-height: 100%;
+
+    & li {
+      box-sizing: content-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      height: 24px;
+      padding: 10px 15px;
+      border-radius: 5px 5px 0 0;
+      user-select: none;
+      cursor: pointer;
+
+      &.selected {
+        background: #eee;
+      }
+
+      .underline {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: lighten($color: colors.$clr-primary, $amount: 20);
+      }
+    }
+  }
+}
+.linebox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+  width: 240px;
+  height: 240px;
+  // border: solid 2px white;
+
+  div {
+    border: 2px solid white;
+  }
+}

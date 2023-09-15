@@ -1,0 +1,49 @@
+@use 'colors';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+::selection {
+  color: white;
+  background-color: colors.$clr-primary;
+}
+a {
+  color: colors.$clr-second;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+li {
+  list-style: none;
+}
+button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+  background-color: lighten($color: colors.$clr-primary, $amount: 20);
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color: colors.$clr-primary, $amount: 10);;
+  }
+}
+
+circle, rect, line {
+  fill: transparent;
+  stroke-width: 3px;
+  stroke-linecap: round;
+}
+
+#__next {
+  height: 100%;
+}
