@@ -397,6 +397,7 @@ const colors = [
 ];
 const PathMorphing = () => {
   const [pathIndex, setPathIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const progress = useMotionValue(pathIndex);
   const fill = useTransform(progress, paths.map(getIndex), colors)
   const path = useFlubber(progress, paths);
@@ -414,16 +415,20 @@ const PathMorphing = () => {
         }
       }
     });
+    !isPlaying && animation.stop();
     
     return () => animation.stop();
-  }, [pathIndex, progress]);
+  }, [pathIndex, progress, isPlaying]);
 
   return (
-    <svg width={240} height={240}>
-      <g transform="translate(10 10) scale(9 9)">
-        <motion.path fill={fill} d={path} />
-      </g>
-    </svg>
+    <>
+      <button onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Stop' : 'Play'}</button>
+      <svg width={240} height={240}>
+        <g transform="translate(10 10) scale(9 9)">
+          <motion.path fill={fill} d={path} />
+        </g>
+      </svg>
+    </>
   )
 }
 export default examples
