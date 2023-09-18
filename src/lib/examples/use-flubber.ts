@@ -1,4 +1,4 @@
-import {  MotionValue, progress, useTransform } from "framer-motion";
+import {  MotionValue, useTransform } from "framer-motion";
 import { interpolate } from 'flubber';
 
 export const getIndex = (_: any, index: number) => index;
