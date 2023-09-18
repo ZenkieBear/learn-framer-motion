@@ -116,3 +116,34 @@
     border: 2px solid white;
   }
 }
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  perspective: 500px;
+  
+  & > div {
+    width: 200px;
+    aspect-ratio: 2/3;
+    position: relative;
+    max-height: 90vh;
+    margin: 20px;
+    background: #fff;
+    overflow: hidden;
+  }
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+}
