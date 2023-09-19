@@ -1,5 +1,10 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import styles from './Showcase.module.scss';
+
+interface ShowcaseProps {
+  children: ReactNode,
+  style?: CSSProperties
+}
 
 const Showcase = ({ style, children }: ShowcaseProps) => {
   return (
