@@ -14,7 +14,7 @@ import utilStyles from '@/styles/utils.module.scss';
 import { useEffect, useState } from "react";
 import MenuToggle from "./MenuToggle";
 import clsx from "clsx";
-import ScrollAnimation from "./ScrollAnimatoin";
+import ScrollAnimation from "./ScrollAnimation/ScrollAnimatoin";
 import CircleIndicator from "./ScrollTrigger";
 import { initialTabs as tabs } from "@/lib/examples/ingredients";
 import { getIndex, useFlubber } from "@/lib/examples/use-flubber";
