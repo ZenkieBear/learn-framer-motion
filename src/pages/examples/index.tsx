@@ -18,7 +18,7 @@ import ScrollAnimation from "./ScrollAnimation/ScrollAnimatoin";
 import CircleIndicator from "./ScrollTrigger";
 import { initialTabs as tabs } from "@/lib/examples/ingredients";
 import { getIndex, useFlubber } from "@/lib/examples/use-flubber";
-import { angular, react, solid, svelte, vue } from "@/lib/examples/paths";
+import { angular, react, solid, svelte, vue } from "@/lib/paths";
 
 const examples = () => {  
   return (

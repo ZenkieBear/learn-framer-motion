@@ -56,3 +56,11 @@
   align-items: center;
   justify-content: center;
 }
+.flexLtr {
+  display: flex;
+}
+.pinTL {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}

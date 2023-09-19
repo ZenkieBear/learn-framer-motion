@@ -13,6 +13,17 @@ const routes: Route[] = [
         path: '/examples'
       }
     ]
+  },
+  {
+    name: 'Animation',
+    path: 'animation',
+    default: '/animation',
+    children: [
+      {
+        name: 'Animation',
+        path: '/animation'
+      }
+    ]
   }
 ]
 export default routes;
