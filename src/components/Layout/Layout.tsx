@@ -51,11 +51,18 @@ const Navbar = ({ routes }: { routes: Route[]}) => {
 const ToTopVariants: Variants = {
   hide: {
     rotate: 180,
-    scale: 0
+    scale: 0,
+    transition: {
+      duration: .2,
+      ease: 'easeIn',
+    }
   },
   show: {
     rotate: 0,
-    scale: 1
+    scale: 1,
+    transition: {
+      duration: .05
+    }
   }
 };
 const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
@@ -90,7 +97,6 @@ const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
       initial='hide'
       animate={isShow ? 'show' : 'hide'}
       whileTap={{ scale: .9 }}
-      transition={{ duration: .05, ease: 'linear' }}
       onClick={scrollToTop}
     >
       <svg
