@@ -19,6 +19,7 @@ import CircleIndicator from "./ScrollTrigger";
 import { initialTabs as tabs } from "@/lib/examples/ingredients";
 import { getIndex, useFlubber } from "@/lib/examples/use-flubber";
 import { angular, react, solid, svelte, vue } from "@/lib/paths";
+import Image from "next/image";
 
 const examples = () => {  
   return (
@@ -157,7 +158,7 @@ const examples = () => {
         background: '#fff'
       }}>
         {[1, 2, 3, 4, 5].map(image =>
-          <Image id={image} key={image} />
+          <MyImage id={image} key={image} />
         )}
       </Showcase>
     </Layout>
@@ -447,7 +448,7 @@ const PathMorphing = () => {
 
 const hiddenMask = `repeating-linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
-const Image = ({ id }: { id: number }) => {
+const MyImage = ({ id }: { id: number }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
 
@@ -464,10 +465,16 @@ const Image = ({ id }: { id: number }) => {
         viewport={{ once: true }}
         onViewportEnter={() => setIsInView(true)}
       >
-        <img src={`/images/${id}.jpg?t=${Date.now()}`} onLoad={e => {
-          setIsLoaded(true)
-          console.log('loaded');
-        }} />
+        <Image
+          src={`/images/${id}.jpg?t=${Date.now()}`}
+          alt={`Image ${id}`}
+          width={200}
+          height={300}
+          onLoad={e => {
+            setIsLoaded(true)
+            console.log('loaded');
+          }}
+        />
       </motion.div>
     </section>
   )
