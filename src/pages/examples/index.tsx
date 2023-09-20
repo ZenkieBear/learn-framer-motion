@@ -449,8 +449,13 @@ const PathMorphing = () => {
 const hiddenMask = `repeating-linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 const MyImage = ({ id }: { id: number }) => {
+  const [time, setTime] = useState<number>();
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    setTime(Date.now())
+  }, [])
 
   return (
     <section className={styles.section}>
@@ -466,7 +471,7 @@ const MyImage = ({ id }: { id: number }) => {
         onViewportEnter={() => setIsInView(true)}
       >
         <Image
-          src={`/images/${id}.jpg?t=${Date.now()}`}
+          src={`/images/${id}.jpg?t=${time}`}
           alt={`Image ${id}`}
           width={200}
           height={300}
