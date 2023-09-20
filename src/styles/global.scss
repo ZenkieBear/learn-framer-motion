@@ -1,4 +1,7 @@
-@use 'colors';
+:root {
+  --clr-primary: #{colors.$clr-primary};
+  --clr-second: #{colors.$clr-second};
+}
 
 * {
   margin: 0;
