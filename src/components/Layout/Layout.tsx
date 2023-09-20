@@ -71,7 +71,6 @@ const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      console.log(window.scrollY);
       if (y > 100) {
         setIsShow(true);
       } else {
