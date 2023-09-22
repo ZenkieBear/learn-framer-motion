@@ -20,6 +20,7 @@ import { initialTabs as tabs } from "@/lib/examples/ingredients";
 import { getIndex, useFlubber } from "@/lib/examples/use-flubber";
 import { angular, react, solid, svelte, vue } from "@/lib/paths";
 import Image from "next/image";
+import { H1 } from "@/components/Headings/Headings";
 
 const examples = () => {  
   return (
@@ -27,7 +28,7 @@ const examples = () => {
       <Head>
         <title>Examples</title>
       </Head>
-      <h1 className={utilStyles.heading2Xl}>Animation</h1>
+      <H1>Animation</H1>
       <Showcase>
         <motion.div
           className={styles.ball}
@@ -37,7 +38,7 @@ const examples = () => {
         />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Keyframes</h1>
+      <H1>Keyframes</H1>
       <Showcase style={{
         background: 'black'
       }}>
@@ -58,13 +59,13 @@ const examples = () => {
         />
       </Showcase>
       
-      <h1 className={utilStyles.heading2Xl}>Keyframes</h1>
+      <H1>Keyframes</H1>
       <p>This example is not finished</p>
       <Showcase>
         <Navigator />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Gesture animations</h1>
+      <H1>Gesture animations</H1>
       <Showcase>
         <motion.div
           className={styles.ball} style={{ background: 'white' }}
@@ -73,7 +74,7 @@ const examples = () => {
         />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Drag</h1>
+      <H1>Drag</H1>
       <Showcase>
         <div className={clsx([styles.dragbox, utilStyles.flexCenter])}>
           <motion.div
@@ -89,12 +90,12 @@ const examples = () => {
         </div>
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>MotionValues</h1>
+      <H1>MotionValues</H1>
       <Showcase>
         <MotionValueDemo />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Scroll-trigger animations</h1>
+      <H1>Scroll-trigger animations</H1>
       <Showcase style={{
         height: 500,
         overflowY: 'scroll',
@@ -103,37 +104,37 @@ const examples = () => {
         <ScrollAnimation />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Scroll-linked animations</h1>
+      <H1>Scroll-linked animations</H1>
       <Showcase style={{ overflow: 'hidden', overflowY: 'scroll' }}>
         <CircleIndicator />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Exit animations</h1>
+      <H1>Exit animations</H1>
       <Showcase>
         <ExitAnimation />
       </Showcase>
       
-      <h1 className={utilStyles.heading2Xl}>Layout animations</h1>
+      <H1>Layout animations</H1>
       <Showcase style={{ background: 'linear-gradient(250deg, #7b2ff7, #f107a3)'}}>
         <Switch />
       </Showcase>
       
-      <h1 className={utilStyles.heading2Xl}>Shared layout animations</h1>
+      <H1>Shared layout animations</H1>
       <Showcase>
         <Tabs />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Line drawing</h1>
+      <H1>Line drawing</H1>
       <Showcase>
         <LineDraw />
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Path morphing</h1>
+      <H1>Path morphing</H1>
       <Showcase>
         <PathMorphing />
       </Showcase>
       
-      <h1 className={utilStyles.heading2Xl}>React Router 6 page transition</h1>
+      <H1>React Router 6 page transition</H1>
       <p>This example is embed, not manually implementation.</p>
       <Showcase>
         <div
@@ -149,7 +150,7 @@ const examples = () => {
         ></iframe>`}}></div>
       </Showcase>
 
-      <h1 className={utilStyles.heading2Xl}>Animating gradients</h1>
+      <H1>Animating gradients</H1>
       <Showcase style={{
         display: 'flex',
         flexDirection: 'column',
