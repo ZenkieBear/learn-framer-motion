@@ -1,7 +1,7 @@
 const routes: Route[] = [
   {
     name: 'Home',
-    path: '/'
+    path: '/',
   },
   {
     name: 'Getting Start',
@@ -10,9 +10,9 @@ const routes: Route[] = [
     children: [
       {
         name: 'Examples',
-        path: '/examples'
-      }
-    ]
+        path: '/examples',
+      },
+    ],
   },
   {
     name: 'Animation',
@@ -21,9 +21,9 @@ const routes: Route[] = [
     children: [
       {
         name: 'Animation',
-        path: '/animation'
-      }
-    ]
-  }
+        path: '/animation',
+      },
+    ],
+  },
 ]
-export default routes;
+export default routes

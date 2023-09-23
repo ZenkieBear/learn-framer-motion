@@ -1,11 +1,11 @@
-import Layout from "@/components/Layout/Layout";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import routes from "../lib/routes";
+import Layout from '@/components/Layout/Layout'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import routes from '../lib/routes'
 
 const Home = () => {
-  const start = routes[1];
-  
+  const start = routes[1]
+
   return (
     <Layout isHome={true}>
       <h1>Sections</h1>

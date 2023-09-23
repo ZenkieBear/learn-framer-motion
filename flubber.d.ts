@@ -1,1 +1,1 @@
-declare module 'flubber';
+declare module 'flubber'

@@ -22,8 +22,10 @@
     content: '';
     width: 1px;
     height: 100%;
-    background: linear-gradient(lighten($color: colors.$clr-primary, $amount: 20),
-      colors.$clr-second);
+    background: linear-gradient(
+      lighten($color: colors.$clr-primary, $amount: 20),
+      colors.$clr-second
+    );
   }
 
   .link,
@@ -45,7 +47,7 @@
     .link {
       margin-left: 1em;
     }
-  } 
+  }
 }
 
 .to-top {
@@ -58,7 +60,7 @@
   padding: 20px;
   border-radius: 20px;
   background-color: lighten($color: colors.$clr-second, $amount: 20);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   svg {
     fill: white;

@@ -33,15 +33,17 @@ button {
   border: 0;
   border-radius: 10px;
   background-color: lighten($color: colors.$clr-primary, $amount: 20);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    background-color: lighten($color: colors.$clr-primary, $amount: 10);;
+    background-color: lighten($color: colors.$clr-primary, $amount: 10);
   }
 }
 
-circle, rect, line {
+circle,
+rect,
+line {
   fill: transparent;
   stroke-width: 3px;
   stroke-linecap: round;
