@@ -1,0 +1,33 @@
+.menu {
+  filter: drop-shadow(1px 1px 1px #4700b3);
+  width: 300px;
+
+  button {
+    -webkit-appearance: button;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: colors.$clr-primary;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+  }
+  ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    &, li {
+      background-color: white;
+      padding: 10px;
+      color: colors.$clr-primary;
+    }
+  }
+}

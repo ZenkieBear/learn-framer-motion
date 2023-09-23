@@ -1,0 +1,28 @@
+.the-box {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed rgb(255, 165, 165);
+  border-radius: 15px;
+}
+.ball {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 200px;
+  padding: 10px;
+  background-color: colors.$clr-primary;
+  border-radius: 15px;
+  
+  li {
+    width: 100%;
+    padding: 1rem;
+    background-color: colors.$clr-second;
+    border-radius: 10px;
+  }
+}
