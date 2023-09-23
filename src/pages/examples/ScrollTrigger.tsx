@@ -1,9 +1,9 @@
-import clsx from "clsx"
-import { useScroll, useSpring, motion } from "framer-motion"
-import styled from "styled-components"
+import clsx from 'clsx'
+import { useScroll, useSpring, motion } from 'framer-motion'
+import styled from 'styled-components'
 import styles from './index.module.scss'
-import utilStyles from '@/styles/utils.module.scss';
-import { useState } from "react"
+import utilStyles from '@/styles/utils.module.scss'
+import { useState } from 'react'
 
 const div = styled.div`
   flex: 1;
@@ -23,27 +23,28 @@ const Progress = styled.div`
 `
 
 const CircleIndicator = () => {
-  const [show, setShow] = useState(true);
-  const { scrollYProgress } = useScroll();
+  const [show, setShow] = useState(true)
+  const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: .001
-  });
-  
-  
+    restDelta: 0.001,
+  })
+
   return (
     <>
-      {show && <motion.div className={styles['progress-bar']} style={{ scaleX }} />}
+      {show && (
+        <motion.div className={styles['progress-bar']} style={{ scaleX }} />
+      )}
       <motion.div
         style={{
-          padding: "5px 10px",
+          padding: '5px 10px',
           background: 'white',
           borderRadius: 5,
-          cursor: 'pointer'
+          cursor: 'pointer',
         }}
         whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: .95 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => setShow(!show)}
       >
         {show ? 'Show Progress' : 'No Progress'}

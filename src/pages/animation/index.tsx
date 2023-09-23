@@ -1,19 +1,29 @@
-import Layout from '@/components/Layout/Layout';
-import { Range } from '@/components/Range/Range';
-import Showcase from '@/components/Showcase/Showcase';
-import { animate, AnimatePresence, delay, easeIn, motion, useAnimate, useMotionValue, useTransform, Variants } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import styles from './index.module.scss';
-import utilStyles from '@/styles/utils.module.scss';
-import Menu from './Menu/Menu';
-import { H1, H2, H3 } from '@/components/Headings/Headings';
+import Layout from '@/components/Layout/Layout'
+import { Range } from '@/components/Range/Range'
+import Showcase from '@/components/Showcase/Showcase'
+import {
+  animate,
+  AnimatePresence,
+  delay,
+  easeIn,
+  motion,
+  useAnimate,
+  useMotionValue,
+  useTransform,
+  Variants,
+} from 'framer-motion'
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import styles from './index.module.scss'
+import utilStyles from '@/styles/utils.module.scss'
+import Menu from './Menu/Menu'
+import { H1, H2, H3 } from '@/components/Headings/Headings'
 
 const Animation = () => {
   return (
     <Layout>
       <H1>Animation</H1>
-      
+
       <H2>Simple animations</H2>
       <Showcase style={{ overflow: 'hidden' }}>
         <TheBox />
@@ -22,9 +32,9 @@ const Animation = () => {
       <H2>Transition</H2>
       <Showcase>
         <motion.div
-          className={ styles.ball }
+          className={styles.ball}
           whileHover={{ scale: 2 }}
-          transition={{ ease: 'easeOut', duration: .5 }}
+          transition={{ ease: 'easeOut', duration: 0.5 }}
         />
       </Showcase>
 
@@ -56,7 +66,7 @@ const Animation = () => {
             repeat: Infinity,
             repeatDelay: 1,
             ease: 'easeInOut', // Ease controlls the speed and fluency
-            times: [0, .2, .5, .8, 1] // Times define time positions
+            times: [0, 0.2, 0.5, 0.8, 1], // Times define time positions
           }}
         />
         <motion.div
@@ -70,7 +80,7 @@ const Animation = () => {
             repeat: Infinity,
             repeatDelay: 1,
             ease: 'easeInOut',
-            times: [0, .25, .5, .75, 1]
+            times: [0, 0.25, 0.5, 0.75, 1],
           }}
         />
       </Showcase>
@@ -79,28 +89,30 @@ const Animation = () => {
       <Showcase>
         <motion.div
           className={styles.ball}
-          whileHover={{ scale: [1.5, 1.4]}}
+          whileHover={{ scale: [1.5, 1.4] }}
           animate={{ scale: 1 }}
           transition={{
-            duration: .3
+            duration: 0.3,
           }}
           style={{ marginLeft: 10 }}
         />
         <motion.div
           className={styles.ball}
-          whileHover={{ scale: [null, 1.5, 1.4]}}
+          whileHover={{ scale: [null, 1.5, 1.4] }}
           transition={{
-            duration: .3
+            duration: 0.3,
           }}
         />
       </Showcase>
 
       <H3>Times</H3>
       <Showcase>
-        <svg viewBox='0 0 1000 1000' width={200} height={200}>
+        <svg viewBox="0 0 1000 1000" width={200} height={200}>
           <motion.circle
             style={{ fill: 'white' }}
-            cx={500} cy={500} r={200}
+            cx={500}
+            cy={500}
+            r={200}
             animate={{ cx: [null, 100, 200] }}
             transition={{ duration: 2, times: [0, 0.4, 1] }}
           />
@@ -110,14 +122,14 @@ const Animation = () => {
       <H2>Gesture animations</H2>
       <Showcase>
         <motion.button
-          initial={{ opacity: .6 }}
+          initial={{ opacity: 0.6 }}
           whileHover={{
             scale: 1.2,
           }}
-          whileTap={{ scale: .9 }}
-          whileInView={{ opacity: 1}}
+          whileTap={{ scale: 0.9 }}
+          whileInView={{ opacity: 1 }}
           transition={{
-            duration: .1,
+            duration: 0.1,
           }}
         >
           Hello
@@ -125,9 +137,11 @@ const Animation = () => {
       </Showcase>
 
       <H2>Variants</H2>
-      <Showcase style={{
-        background: 'var(--clr-primary)'
-      }}>
+      <Showcase
+        style={{
+          background: 'var(--clr-primary)',
+        }}
+      >
         <Menu />
       </Showcase>
 
@@ -171,34 +185,36 @@ const Animation = () => {
 
 const TheBox = () => {
   const [status, setStatus] = useState({
-    x: 0, y: 0, rotate: 0
+    x: 0,
+    y: 0,
+    rotate: 0,
   })
   const updateX = (val: number) => {
     // The after will overwrite existed attributes.
     const nextStatus = {
       ...status,
-      x: val
-    };
+      x: val,
+    }
     setStatus(nextStatus)
-  };
+  }
   const updateY = (val: number) => {
     setStatus({
       ...status,
-      y: val
+      y: val,
     })
-  };
+  }
   const updateRotate = (val: number) => {
     setStatus({
       ...status,
-      rotate: val
+      rotate: val,
     })
-  };
+  }
   return (
     <div className={styles['flex-ltr']}>
       <motion.div
         className={styles['the-box']}
         animate={{
-          ...status
+          ...status,
         }}
         transition={{ type: 'spring' }}
       />
@@ -218,42 +234,42 @@ const TheBox = () => {
 }
 
 const HowExit = () => {
-  const [isShow, setIsShow] = useState(true);
-  const [count, setCount] = useState(0);
+  const [isShow, setIsShow] = useState(true)
+  const [count, setCount] = useState(0)
 
   return (
     <>
       <button
         className={utilStyles.pinTL}
         onClick={() => {
-          setIsShow(!isShow);
-          setCount(count + 1);
+          setIsShow(!isShow)
+          setCount(count + 1)
         }}
       >
         {isShow ? 'Show' : 'Hide'}
       </button>
       <AnimatePresence>
-        {isShow &&
+        {isShow && (
           <motion.div
             key={count}
             className={styles.ball}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            transition={{ type: 'spring'}}
+            transition={{ type: 'spring' }}
           />
-        }
+        )}
       </AnimatePresence>
     </>
   )
 }
 
 const Propagation = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
 
   const list: Variants = {
     visible: { opacity: 1 },
-    hidden: { opacity: 0 }
+    hidden: { opacity: 0 },
   }
   const item: Variants = {
     visible: { opacity: 1, x: 0 },
@@ -266,7 +282,7 @@ const Propagation = () => {
         style={{
           position: 'absolute',
           left: 10,
-          top: 10
+          top: 10,
         }}
         onClick={() => setVisible(!visible)}
       >
@@ -275,7 +291,7 @@ const Propagation = () => {
       <motion.ul
         className={styles.list}
         variants={list}
-        initial='hidden'
+        initial="hidden"
         // When parent changes, its children will also change variant status
         animate={visible ? 'visible' : 'hidden'}
       >
@@ -288,23 +304,23 @@ const Propagation = () => {
 }
 
 const Orchestration = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true)
 
   const list: Variants = {
     visible: {
       opacity: 1,
       transition: {
         when: 'beforeChildren',
-        staggerChildren: .1 // This make children animated one-by-one
-      }
+        staggerChildren: 0.1, // This make children animated one-by-one
+      },
     },
     hidden: {
       opacity: 0,
       transition: {
         when: 'afterChildren',
-        staggerChildren: .1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   }
   const item: Variants = {
     visible: { opacity: 1, x: 0 },
@@ -317,7 +333,7 @@ const Orchestration = () => {
         style={{
           position: 'absolute',
           left: 10,
-          top: 10
+          top: 10,
         }}
         onClick={() => setVisible(!visible)}
       >
@@ -326,7 +342,7 @@ const Orchestration = () => {
       <motion.ul
         className={styles.list}
         variants={list}
-        initial='hidden'
+        initial="hidden"
         // When parent changes, its children will also change variant status
         animate={visible ? 'visible' : 'hidden'}
       >
@@ -338,17 +354,17 @@ const Orchestration = () => {
   )
 }
 
-const items = [1, 2, 3];
+const items = [1, 2, 3]
 const Dynamic = () => {
-  const [visible, setVisible] = useState(true);
-  const variants: Variants =  {
-    visible: i => ({
+  const [visible, setVisible] = useState(true)
+  const variants: Variants = {
+    visible: (i) => ({
       opacity: 1,
       transition: {
-        delay: i * .3
-      }
+        delay: i * 0.3,
+      },
     }),
-    hidden: { opacity: 0}
+    hidden: { opacity: 0 },
   }
   return (
     <>
@@ -356,7 +372,7 @@ const Dynamic = () => {
         style={{
           position: 'absolute',
           left: 10,
-          top: 10
+          top: 10,
         }}
         onClick={() => setVisible(!visible)}
       >
@@ -380,36 +396,37 @@ const Dynamic = () => {
 const Multiple = () => {
   const variants: Variants = {
     hover: {
-      background: 'white'
+      background: 'white',
     },
     focus: {
-      border: "2px solid var(--clr-primary)"
+      border: '2px solid var(--clr-primary)',
     },
     active: {
-      background: '#eee'
-    }
+      background: '#eee',
+    },
   }
   return (
     <motion.button
       variants={variants}
       whileHover="hover"
-      whileTap={['active', 'focus']}>
+      whileTap={['active', 'focus']}
+    >
       Halo👋🏼
     </motion.button>
   )
 }
 
 const Manual = () => {
-  const [played, setPlayed] = useState(false);
-  const [scope, animate] = useAnimate();
+  const [played, setPlayed] = useState(false)
+  const [scope, animate] = useAnimate()
 
   useEffect(() => {
     const animation = async () => {
-      await animate(scope.current, { x: played ? 100 : 0 });
+      await animate(scope.current, { x: played ? 100 : 0 })
       // mention: "li" is ul's children
-      animate("li", { opacity: played ? 1 : 0 });
+      animate('li', { opacity: played ? 1 : 0 })
     }
-    animation();
+    animation()
   }, [played])
 
   return (
@@ -421,65 +438,67 @@ const Manual = () => {
         className={styles.list}
         ref={scope}
         style={{
-          x: 0
+          x: 0,
         }}
       >
-        {items.map(i => 
-          <li key={i} style={{
-            opacity: 0
-          }}/>)}
+        {items.map((i) => (
+          <li
+            key={i}
+            style={{
+              opacity: 0,
+            }}
+          />
+        ))}
       </motion.ul>
     </>
   )
 }
 
 const Single = () => {
-  const [isDown, setIsDown] = useState(false);
-  const [scope, animate] = useAnimate();
-  const y = useMotionValue(0);
-
+  const [isDown, setIsDown] = useState(false)
+  const [scope, animate] = useAnimate()
+  const y = useMotionValue(0)
 
   useEffect(() => {
     const controls = animate(y, isDown ? 50 : -50, {
       type: 'spring',
       stiffness: 2000,
-      onComplete: () => {}
+      onComplete: () => {},
     })
 
-    return controls.stop;
-  }, [isDown]);
+    return controls.stop
+  }, [isDown])
 
   return (
     <>
       <button onClick={() => setIsDown(!isDown)}>
         {isDown ? 'Up' : 'Down'}
       </button>
-      <motion.div
-        className={styles.ball}
-        style={{ y }}
-      />
+      <motion.div className={styles.ball} style={{ y }} />
     </>
   )
 }
 
 const Content = () => {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, Math.round);
-  const [time, setTime] = useState(0);
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, Math.round)
+  const [time, setTime] = useState(0)
 
   useEffect(() => {
-    count.set(0);
-    const animation = animate(count, 100, { duration: 10, ease: 'easeInOut' });
+    count.set(0)
+    const animation = animate(count, 100, { duration: 10, ease: 'easeInOut' })
 
-    return animation.stop;
-  });
+    return animation.stop
+  })
 
   return (
     <>
       <button onClick={() => setTime(time + 1)}>Replay</button>
-      <motion.h1 style={{
-        color: 'white'
-      }}>
+      <motion.h1
+        style={{
+          color: 'white',
+        }}
+      >
         {rounded}
       </motion.h1>
     </>

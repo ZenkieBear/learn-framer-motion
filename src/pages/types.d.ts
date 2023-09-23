@@ -1,6 +1,6 @@
 type Route = {
-  name?: string,
-  path: string,
-  default?: string,
+  name?: string
+  path: string
+  default?: string
   children?: Route[]
 }

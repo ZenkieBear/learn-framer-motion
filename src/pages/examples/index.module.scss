@@ -9,7 +9,7 @@
 .dragbox {
   width: 200px;
   height: 200px;
-  background-color: rgba(darken($color: colors.$clr-primary, $amount: 30), .6);
+  background-color: rgba(darken($color: colors.$clr-primary, $amount: 30), 0.6);
   border-radius: 15px;
 
   .ball {
@@ -51,7 +51,7 @@
     border-radius: 40px;
   }
 
-  &[data-is-on="true"] {
+  &[data-is-on='true'] {
     justify-content: flex-end;
   }
 }
@@ -63,9 +63,12 @@
   border-radius: 10px 10px 0 0;
   background: white;
   overflow: hidden;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
   display: flex;
   flex-direction: column;
 
@@ -123,7 +126,7 @@
   position: relative;
   scroll-snap-align: center;
   perspective: 500px;
-  
+
   & > div {
     width: 200px;
     aspect-ratio: 2/3;
@@ -133,7 +136,7 @@
     background: #fff;
     overflow: hidden;
   }
-  
+
   img {
     position: absolute;
     top: 0;
@@ -143,5 +146,4 @@
     width: 100%;
     height: 100%;
   }
-  
 }

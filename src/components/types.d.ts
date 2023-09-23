@@ -1,4 +1,4 @@
 type LayoutProps = {
-  isHome?: boolean,
+  isHome?: boolean
   children: ReactNode
 }

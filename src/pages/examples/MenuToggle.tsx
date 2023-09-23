@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import { motion } from 'framer-motion'
+import styled from 'styled-components'
 
 const Path = (props: any) => (
   <motion.path
@@ -9,7 +9,7 @@ const Path = (props: any) => (
     strokeLinecap="round"
     {...props}
   />
-);
+)
 const my = styled.button`
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ const my = styled.button`
   border: 0;
   outline: 0;
   cursor: pointer;
-`;
+`
 const MenuToggle = ({ toggle }: any) => {
   return (
     <button onClick={toggle}>
@@ -48,5 +48,5 @@ const MenuToggle = ({ toggle }: any) => {
       </svg> */}
     </button>
   )
-};
-export default MenuToggle;
+}
+export default MenuToggle

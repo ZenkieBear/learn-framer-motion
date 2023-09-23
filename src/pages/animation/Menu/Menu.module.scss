@@ -24,7 +24,8 @@
     gap: 10px;
     flex-direction: column;
 
-    &, li {
+    &,
+    li {
       background-color: white;
       padding: 10px;
       color: colors.$clr-primary;
