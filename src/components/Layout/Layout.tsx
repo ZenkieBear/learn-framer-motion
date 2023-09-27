@@ -31,7 +31,7 @@ const Layout = ({ isHome = false, children }: LayoutProps) => {
 const Navbar = ({ routes }: { routes: Route[] }) => {
   return (
     <ul className={styles.nav}>
-      {routes.map((r) =>
+      {routes.map(r =>
         r.children ? (
           <li key={r.path} className={styles.parent}>
             <div className={styles.parentTitle}>{r.name}</div>
@@ -92,7 +92,7 @@ const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
     <motion.button
       className={styles['to-top']}
       variants={ToTopVariants}
-      initial="hide"
+      initial='hide'
       animate={isShow ? 'show' : 'hide'}
       whileTap={{ scale: 0.9 }}
       onClick={scrollToTop}
@@ -100,7 +100,7 @@ const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
       <svg
         width={15}
         height={15}
-        viewBox="0 0 20 20"
+        viewBox='0 0 20 20'
         style={{ rotate: '180deg' }}
       >
         <path d={triagle} />

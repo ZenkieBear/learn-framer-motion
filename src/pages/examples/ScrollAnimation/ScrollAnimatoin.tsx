@@ -31,8 +31,8 @@ function Card({ emoji, hueA, hueB }: Props) {
   return (
     <motion.div
       className={styles['card-container']}
-      initial="offscreen"
-      whileInView="onscreen"
+      initial='offscreen'
+      whileInView='onscreen'
       viewport={{ once: false, amount: 0.8 }}
     >
       <div className={styles.splash} style={{ background }} />

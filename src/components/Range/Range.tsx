@@ -29,18 +29,18 @@ export function Range({
         {children}
       </code>
       <input
-        type="range"
+        type='range'
         value={value}
         max={max}
         min={min}
-        onChange={(e) => set(parseFloat(e.target.value))}
+        onChange={e => set(parseFloat(e.target.value))}
       />
       <input
-        type="number"
+        type='number'
         value={value}
         max={max}
         min={min}
-        onChange={(e) => set(parseFloat(e.target.value))}
+        onChange={e => set(parseFloat(e.target.value))}
       />
     </RangeLabel>
   )

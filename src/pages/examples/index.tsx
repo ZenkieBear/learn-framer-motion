@@ -171,7 +171,7 @@ const examples = () => {
           background: '#fff',
         }}
       >
-        {[1, 2, 3, 4, 5].map((image) => (
+        {[1, 2, 3, 4, 5].map(image => (
           <MyImage id={image} key={image} />
         ))}
       </Showcase>
@@ -213,7 +213,7 @@ const MotionValueDemo = () => {
     >
       <motion.div
         className={styles.ball}
-        drag="x"
+        drag='x'
         dragConstraints={{ left: 0, right: 0 }}
         // This x is a property defined in motion.div, it will pass its x-axis data into the MotionValue object.
         style={{ x, background: 'white' }}
@@ -274,9 +274,9 @@ const SlideShow = ({ val, visible }: { val: number; visible: boolean }) => (
         className={styles.ball}
         style={{ background: 'white' }}
         variants={showVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
+        initial='enter'
+        animate='center'
+        exit='exit'
       >
         {val}
       </motion.div>
@@ -307,7 +307,7 @@ const Tabs = () => {
   return (
     <div className={styles.tabs}>
       <ul>
-        {tabs.map((tab) => (
+        {tabs.map(tab => (
           <li
             key={tab.label}
             className={tab === selectedTab ? styles.selected : ''}
@@ -316,7 +316,7 @@ const Tabs = () => {
             {tab.icon} {tab.label}
             {tab === selectedTab && (
               // The "underline" will be animated when its unmount and a new underline mounted.
-              <motion.div className={styles.underline} layoutId="underline" />
+              <motion.div className={styles.underline} layoutId='underline' />
             )}
           </li>
         ))}
@@ -344,59 +344,59 @@ const LineDraw = () => {
   return (
     <motion.svg
       className={styles.linebox}
-      viewBox="0 0 240 240"
-      initial="hidden"
-      animate="visible"
+      viewBox='0 0 240 240'
+      initial='hidden'
+      animate='visible'
     >
       <motion.circle
-        cx="120"
-        cy="120"
-        r="25"
-        stroke="aquamarine"
+        cx='120'
+        cy='120'
+        r='25'
+        stroke='aquamarine'
         variants={draw}
         custom={1}
       />
       <motion.line
-        x1="20"
-        y1="20"
-        x2="60"
-        y2="60"
-        stroke="#1e90ff"
+        x1='20'
+        y1='20'
+        x2='60'
+        y2='60'
+        stroke='#1e90ff'
         variants={draw}
         custom={2}
       />
       <motion.line
-        x1="60"
-        y1="20"
-        x2="20"
-        y2="60"
-        stroke="#1e90ff"
+        x1='60'
+        y1='20'
+        x2='20'
+        y2='60'
+        stroke='#1e90ff'
         variants={draw}
         custom={2.5}
       />
       <motion.circle
-        cx="200"
-        cy="40"
-        r="25"
-        stroke="aquamarine"
+        cx='200'
+        cy='40'
+        r='25'
+        stroke='aquamarine'
         variants={draw}
         custom={3}
       />
       <motion.line
-        x1="20"
-        y1="180"
-        x2="60"
-        y2="220"
-        stroke="#1e90ff"
+        x1='20'
+        y1='180'
+        x2='60'
+        y2='220'
+        stroke='#1e90ff'
         variants={draw}
         custom={4}
       />
       <motion.line
-        x1="60"
-        y1="180"
-        x2="20"
-        y2="220"
-        stroke="#1e90ff"
+        x1='60'
+        y1='180'
+        x2='20'
+        y2='220'
+        stroke='#1e90ff'
         variants={draw}
         custom={4.5}
       />
@@ -404,7 +404,7 @@ const LineDraw = () => {
         cx={200}
         cy={200}
         r={25}
-        stroke="aquamarine"
+        stroke='aquamarine'
         variants={draw}
         custom={5}
       />
@@ -413,7 +413,7 @@ const LineDraw = () => {
         y1={100}
         x2={220}
         y2={140}
-        stroke="#1e90ff"
+        stroke='#1e90ff'
         variants={draw}
         custom={6}
       />
@@ -422,7 +422,7 @@ const LineDraw = () => {
         y1={100}
         x2={180}
         y2={140}
-        stroke="#1e90ff"
+        stroke='#1e90ff'
         variants={draw}
         custom={6.5}
       />
@@ -432,7 +432,7 @@ const LineDraw = () => {
         x={95}
         y={15}
         rx={10}
-        stroke="white"
+        stroke='white'
         variants={draw}
         custom={7}
       />
@@ -442,7 +442,7 @@ const LineDraw = () => {
         x={15}
         y={95}
         rx={10}
-        stroke="white"
+        stroke='white'
         variants={draw}
         custom={7.2}
       />
@@ -452,7 +452,7 @@ const LineDraw = () => {
         x={95}
         y={175}
         rx={10}
-        stroke="white"
+        stroke='white'
         variants={draw}
         custom={7.4}
       />
@@ -500,7 +500,7 @@ const PathMorphing = () => {
         {isPlaying ? 'Stop' : 'Play'}
       </button>
       <svg width={240} height={240}>
-        <g transform="translate(10 10) scale(9 9)">
+        <g transform='translate(10 10) scale(9 9)'>
           <motion.path fill={fill} d={path} />
         </g>
       </svg>
@@ -537,7 +537,7 @@ const MyImage = ({ id }: { id: number }) => {
           alt={`Image ${id}`}
           width={200}
           height={300}
-          onLoad={(e) => {
+          onLoad={e => {
             setIsLoaded(true)
             console.log('loaded')
           }}
