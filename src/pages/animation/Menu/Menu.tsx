@@ -39,7 +39,7 @@ const Menu = () => {
             closed: { rotate: 0 },
           }}
         >
-          <svg width={15} height={15} viewBox="0 0 20 20">
+          <svg width={15} height={15} viewBox='0 0 20 20'>
             <path d={triagle} />
           </svg>
         </motion.div>
@@ -66,7 +66,7 @@ const Menu = () => {
           },
         }}
       >
-        {[1, 2, 3, 4].map((i) => (
+        {[1, 2, 3, 4].map(i => (
           <motion.li key={`menu-${i}`} variants={itemVariants}>
             Item {i}
           </motion.li>

@@ -107,7 +107,7 @@ const Animation = () => {
 
       <H3>Times</H3>
       <Showcase>
-        <svg viewBox="0 0 1000 1000" width={200} height={200}>
+        <svg viewBox='0 0 1000 1000' width={200} height={200}>
           <motion.circle
             style={{ fill: 'white' }}
             cx={500}
@@ -291,7 +291,7 @@ const Propagation = () => {
       <motion.ul
         className={styles.list}
         variants={list}
-        initial="hidden"
+        initial='hidden'
         // When parent changes, its children will also change variant status
         animate={visible ? 'visible' : 'hidden'}
       >
@@ -342,7 +342,7 @@ const Orchestration = () => {
       <motion.ul
         className={styles.list}
         variants={list}
-        initial="hidden"
+        initial='hidden'
         // When parent changes, its children will also change variant status
         animate={visible ? 'visible' : 'hidden'}
       >
@@ -358,7 +358,7 @@ const items = [1, 2, 3]
 const Dynamic = () => {
   const [visible, setVisible] = useState(true)
   const variants: Variants = {
-    visible: (i) => ({
+    visible: i => ({
       opacity: 1,
       transition: {
         delay: i * 0.3,
@@ -383,7 +383,7 @@ const Dynamic = () => {
           <motion.li
             key={item}
             custom={i} // the value passed in visible function
-            initial="hidden"
+            initial='hidden'
             animate={visible ? 'visible' : 'hidden'}
             variants={variants}
           />
@@ -408,7 +408,7 @@ const Multiple = () => {
   return (
     <motion.button
       variants={variants}
-      whileHover="hover"
+      whileHover='hover'
       whileTap={['active', 'focus']}
     >
       Halo👋🏼
@@ -427,7 +427,7 @@ const Manual = () => {
       animate('li', { opacity: played ? 1 : 0 })
     }
     animation()
-  }, [played])
+  }, [played, animate, scope])
 
   return (
     <>
@@ -441,7 +441,7 @@ const Manual = () => {
           x: 0,
         }}
       >
-        {items.map((i) => (
+        {items.map(i => (
           <li
             key={i}
             style={{
@@ -467,7 +467,7 @@ const Single = () => {
     })
 
     return controls.stop
-  }, [isDown])
+  }, [isDown, animate, y])
 
   return (
     <>

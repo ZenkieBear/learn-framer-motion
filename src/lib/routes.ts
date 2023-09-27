@@ -20,7 +20,7 @@ const routes: Route[] = [
     default: '/animation',
     children: [
       {
-        name: 'Animation',
+        name: 'Overview',
         path: '/animation',
       },
     ],
