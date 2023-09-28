@@ -23,6 +23,10 @@ const routes: Route[] = [
         name: 'Overview',
         path: '/animation',
       },
+      {
+        name: 'Layout',
+        path: '/layout-animations',
+      },
     ],
   },
 ]
