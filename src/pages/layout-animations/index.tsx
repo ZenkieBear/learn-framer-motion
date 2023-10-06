@@ -46,6 +46,11 @@ const LayoutAnimations = () => {
       <Showcase>
         <Navbar />
       </Showcase>
+
+      {/* <H1>Handle sticky animations</H1>
+      <Showcase>
+        <ItemList />
+      </Showcase> */}
     </Layout>
   )
 }
@@ -133,6 +138,21 @@ const Navbar = () => {
         </li>
       ))}
     </ul>
+  )
+}
+
+const ItemList = () => {
+  const items = []
+  for (let i = 1; i <= 100; i++) {
+    items.push(i)
+  }
+  return (
+    <motion.ul className={styles['item-list']}>
+      <li className={styles.guide}>The Guide</li>
+      {items.map(item => (
+        <li key={item}>Item {item}</li>
+      ))}
+    </motion.ul>
   )
 }
 

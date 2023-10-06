@@ -86,3 +86,28 @@
     }
   }
 }
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  height: 100%;
+  color: white;
+  overflow: scroll;
+  
+  li {
+    flex: 1;
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: colors.$clr-primary;
+    
+    &.guide {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      color: black;
+    }
+  }
+}
