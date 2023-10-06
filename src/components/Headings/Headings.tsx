@@ -4,15 +4,35 @@ import { ReactNode } from 'react'
 interface HeadingProps {
   children: ReactNode
 }
+
+const children2Anchor = (children: string) => {
+  return children.toLocaleLowerCase().replaceAll(' ', '-')
+}
+const Heading = ({ children }: HeadingProps) => {
+  const anchor = children2Anchor(children as string)
+  return (
+    <a name={anchor} href={`#${anchor}`}>
+      {children}
+    </a>
+  )
+}
 export const H1 = ({ children }: HeadingProps) => (
-  <h1 className={utilStyles.heading2Xl}>{children}</h1>
+  <h1 className={utilStyles.heading2Xl}>
+    <Heading>{children}</Heading>
+  </h1>
 )
 export const H2 = ({ children }: HeadingProps) => (
-  <h2 className={utilStyles.headingXl}>{children}</h2>
+  <h2 className={utilStyles.headingXl}>
+    <Heading>{children}</Heading>
+  </h2>
 )
 export const H3 = ({ children }: HeadingProps) => (
-  <h3 className={utilStyles.headingLg}>{children}</h3>
+  <h3 className={utilStyles.headingLg}>
+    <Heading>{children}</Heading>
+  </h3>
 )
 export const H4 = ({ children }: HeadingProps) => (
-  <h4 className={utilStyles.headingMd}>{children}</h4>
+  <h4 className={utilStyles.headingMd}>
+    <Heading>{children}</Heading>
+  </h4>
 )
