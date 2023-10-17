@@ -27,6 +27,10 @@ const routes: Route[] = [
         name: 'Layout',
         path: '/layout-animations',
       },
+      {
+        name: 'Gestures',
+        path: '/gestures',
+      },
     ],
   },
 ]

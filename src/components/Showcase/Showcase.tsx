@@ -10,6 +10,7 @@ const Showcase = styled.div`
   padding: 10px;
   background-color: black;
   border-radius: 10px;
+  gap: 10px;
 `
 
 export default Showcase
