@@ -1,4 +1,5 @@
 import utilStyles from '@/styles/utils.module.scss'
+import Link from 'next/link'
 import { ReactNode } from 'react'
 
 interface HeadingProps {
@@ -11,9 +12,9 @@ const children2Anchor = (children: string) => {
 const Heading = ({ children }: HeadingProps) => {
   const anchor = children2Anchor(children as string)
   return (
-    <a name={anchor} href={`#${anchor}`}>
+    <Link id={anchor} href={`#${anchor}`} scroll={true}>
       {children}
-    </a>
+    </Link>
   )
 }
 export const H1 = ({ children }: HeadingProps) => (

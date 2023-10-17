@@ -373,7 +373,7 @@ const VideoController = () => {
       className={styles['progress-track']}
       ref={track}
       onPointerDown={startDrag}
-      whileHover={{ '--track-height': '4px' }}
+      whileHover={{ height: 4 }}
     >
       <motion.div
         className={styles.thumb}

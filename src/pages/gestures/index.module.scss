@@ -53,11 +53,9 @@
 }
 
 .progress-track {
-  --track-height: 2px;
   position: relative;
   width: 100%;
-  height: var(--track-height);
-  border-radius: calc(var(--track-height) * (1 - 0.618));
+  height: 2px;
   background: lighten($color: colors.$clr-primary, $amount: 35);
   cursor: grab;
 
