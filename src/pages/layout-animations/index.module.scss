@@ -54,7 +54,7 @@
   background-color: white;
   border-radius: 10px;
   cursor: pointer;
-  
+
   & + & {
     margin-top: 10px;
   }
@@ -74,10 +74,10 @@
     &:hover {
       background-color: #eee;
     }
-    
+
     .focus-line {
       position: absolute;
-      top: calc(50% - .5em);
+      top: calc(50% - 0.5em);
       right: 5px;
       width: 1em;
       height: 1em;
@@ -95,14 +95,14 @@
   height: 100%;
   color: white;
   overflow: scroll;
-  
+
   li {
     flex: 1;
     padding: 10px;
     height: 50px;
     border-radius: 10px;
     background-color: colors.$clr-primary;
-    
+
     &.guide {
       position: sticky;
       top: 0;

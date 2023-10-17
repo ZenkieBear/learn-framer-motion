@@ -12,3 +12,5 @@ export const note =
   'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z'
 
 export const triagle = 'M0 7 L 20 7 L 10 16'
+
+export const plus = 'm24.06 10l-.036 28M10 24h28'

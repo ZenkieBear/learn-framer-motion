@@ -1,0 +1,74 @@
+.radial-button {
+  min-width: 100px;
+  min-height: 50px;
+  padding: 10px;
+  border-radius: 50px;
+  background: skyblue;
+  color: white;
+}
+.switch {
+  display: flex;
+  padding: 5px;
+  width: 150px;
+  border-radius: 9999px;
+  background: rgba($color: #fff, $alpha: 0.4);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  cursor: pointer;
+
+  .trigger {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: rgba($color: #fff, $alpha: 0.9);
+  }
+}
+
+.ball {
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+.drag-container {
+  $radius-p: 20px;
+  $padding-p: 10px;
+  width: 100px;
+  height: 100px;
+  padding: $padding-p;
+  border-radius: $radius-p;
+  background-color: rgba($color: #fff, $alpha: 0.4);
+
+  div {
+    width: 100%;
+    height: 100%;
+    border-radius: $radius-p - $padding-p;
+    background-color: rgba($color: #fff, $alpha: 0.9);
+  }
+}
+
+.progress-track {
+  --track-height: 2px;
+  position: relative;
+  width: 100%;
+  height: var(--track-height);
+  border-radius: calc(var(--track-height) * (1 - 0.618));
+  background: lighten($color: colors.$clr-primary, $amount: 35);
+  cursor: grab;
+
+  & .thumb {
+    $thumb-size: 20px;
+    position: absolute;
+    top: calc(50% - $thumb-size / 2);
+    left: calc(-0.5 * $thumb-size);
+    width: $thumb-size;
+    height: $thumb-size;
+    border-radius: $thumb-size;
+    background: lighten($color: colors.$clr-primary, $amount: 10);
+  }
+}
