@@ -7,22 +7,26 @@ import {
   Variant,
   AnimatePresence,
   animate,
+  useScroll,
+  MotionValue,
 } from 'framer-motion'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import utilStyles from '@/styles/utils.module.scss'
-import { useEffect, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import MenuToggle from './MenuToggle'
 import clsx from 'clsx'
 import ScrollAnimation from './ScrollAnimation/ScrollAnimatoin'
-import CircleIndicator from './ScrollTrigger'
+import ProgressIndicator from './ProgressIndicator'
 import { initialTabs as tabs } from '@/lib/examples/ingredients'
 import { getIndex, useFlubber } from '@/lib/examples/use-flubber'
 import { angular, react, solid, svelte, vue } from '@/lib/paths'
 import Image from 'next/image'
 import { H1 } from '@/components/Headings/Headings'
 
-const examples = () => {
+const Examples = () => {
+  const [scrollYProgress, setScrollYProgress] = useState<MotionValue>()
+
   return (
     <Layout>
       <Head>
@@ -111,8 +115,8 @@ const examples = () => {
       </Showcase>
 
       <H1>Scroll-linked animations</H1>
-      <Showcase style={{ overflow: 'hidden', overflowY: 'scroll' }}>
-        <CircleIndicator />
+      <Showcase>
+        <ProgressIndicator />
       </Showcase>
 
       <H1>Exit animations</H1>
@@ -151,7 +155,7 @@ const examples = () => {
             height: '100%',
           }}
           dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://codesandbox.io/embed/framer-motion-react-router-6-page-transitions-2f2olf?fontsize=14&hidenavigation=1&theme=dark"
+            __html: `<iframe src="https://codesandbox.io/embed/framer-motion-react-router-6-page-transitions-2f2olf?fontsize=14&hidenavigation=1&theme=dark&codemirror=1"
           style="width:100%; height:100%; border:0; border-radius: 4px; overflow:hidden;"
           title="Framer Motion: React Router 6 page transitions"
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -178,6 +182,31 @@ const examples = () => {
     </Layout>
   )
 }
+
+const TestScroll = ({
+  containerRef: mainRef,
+}: {
+  containerRef: RefObject<HTMLElement>
+}) => {
+  const { scrollYProgress } = useScroll({
+    container: mainRef,
+  })
+
+  return (
+    <motion.div
+      style={{
+        position: 'fixed',
+        bottom: 0,
+        right: 10,
+        width: 100,
+        height: 100,
+        border: '1px solid black',
+        scale: scrollYProgress,
+      }}
+    />
+  )
+}
+export { TestScroll }
 
 const variants: { [key: string]: Variant } = {
   open: { opacity: 1, x: 0 },
@@ -249,6 +278,7 @@ const ExitAnimation = () => {
     </>
   )
 }
+
 const showVariants = {
   enter: {
     zIndex: 0,
@@ -547,4 +577,4 @@ const MyImage = ({ id }: { id: number }) => {
   )
 }
 
-export default examples
+export default Examples

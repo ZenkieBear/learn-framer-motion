@@ -24,15 +24,33 @@
   color: white;
   overflow-y: visible;
 }
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  border-radius: 0 100vw 100vw 0;
-  background: colors.$clr-primary;
-  transform-origin: 0%;
+.progress {
+  height: 100%;
+  color: white;
+
+  .progress-bar {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 3px;
+    border-radius: 0 100vw 100vw 0;
+    background: lighten($color: colors.$clr-primary, $amount: 25);
+    transform-origin: 0%;
+  }
+  .content {
+    height: 100%;
+    overflow-y: auto;
+
+    h1 {
+      margin: 18px 0;
+      line-height: 1em;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
 }
 .switch {
   width: 160px;

@@ -1,71 +1,44 @@
 .container {
   display: flex;
   width: 100%;
-  min-height: 100%;
-}
-.main {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
-  flex: 1;
-}
-.navbar {
-  position: relative;
-  width: 200px;
-  min-height: 100%;
+  height: 100%;
 
-  &::after {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: '';
-    width: 1px;
+  .navbar {
+    position: relative;
+    width: 300px;
     height: 100%;
-    background: linear-gradient(
-      lighten($color: colors.$clr-primary, $amount: 20),
-      colors.$clr-second
-    );
-  }
-
-  .link,
-  .parentTitle {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-
-    &:hover {
-      background: lighten($color: colors.$clr-second, $amount: 35);
-    }
-  }
-  .parent {
-    ul {
+    overflow-y: auto;
+  
+    .link,
+    .parentTitle {
+      display: block;
       margin: 10px;
+      padding: 10px;
+      border-radius: 15px;
+      text-decoration: none;
+  
+      &:hover {
+        background: lighten($color: colors.$clr-second, $amount: 35);
+      }
     }
-    .link {
-      margin-left: 1em;
+    .parent {
+      ul {
+        margin: 10px;
+      }
+      .link {
+        margin-left: 1em;
+      }
     }
   }
-}
 
-.to-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: lighten($color: colors.$clr-second, $amount: 20);
-  transition: all 0.2s ease-in-out;
+  .main {
+    flex: 1;
+    overflow: auto;
 
-  svg {
-    fill: white;
-  }
-  &:hover {
-    background-color: darken($color: colors.$clr-second, $amount: 10);
+    .content {
+      margin: 3rem auto 6rem;
+      padding: 0 1rem;
+      max-width: 36rem;
+    }
   }
 }
