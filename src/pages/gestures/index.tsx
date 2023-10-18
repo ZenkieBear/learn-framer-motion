@@ -65,11 +65,7 @@ const Gestures = () => {
 
       <H1>Drag</H1>
       <Showcase>
-        <motion.div
-          className={styles.ball}
-          drag='x'
-          whileDrag={{ scale: 0.8 }}
-        />
+        <motion.div className='ball' drag='x' whileDrag={{ scale: 0.8 }} />
       </Showcase>
 
       <H2>Drag constraint with ref</H2>
@@ -270,26 +266,26 @@ const DragRef = () => {
 }
 
 const LetItBack = () => {
-  return <motion.div className={styles.ball} drag dragSnapToOrigin={true} />
+  return <motion.div className='ball' drag dragSnapToOrigin={true} />
 }
 
 const HowFarCanLeave = () => {
   return (
     <>
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='y'
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={0.2}
       />
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='y'
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={0.5}
       />
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='y'
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={1}
@@ -302,13 +298,13 @@ const Momentum = () => {
   return (
     <>
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='x'
         dragConstraints={{ left: 0, right: 300 }}
         dragMomentum={true}
       />
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='x'
         dragConstraints={{ left: 0, right: 300 }}
         dragMomentum={false}
@@ -320,7 +316,7 @@ const Momentum = () => {
 const DragTransition = () => {
   return (
     <motion.div
-      className={styles.ball}
+      className='ball'
       drag
       dragSnapToOrigin={true}
       dragTransition={{ bounceStiffness: 50, bounceDamping: 1 }}
@@ -331,17 +327,17 @@ const DragTransition = () => {
 const PropagationToChildren = () => {
   return (
     <>
-      <motion.div className={styles.ball} drag='y'>
-        <motion.div className={styles.ball} drag='y' />
+      <motion.div className='ball' drag='y'>
+        <motion.div className='ball' drag='y' />
       </motion.div>
       <motion.div
-        className={styles.ball}
+        className='ball'
         drag='y'
         // drag parent, children will move
         // drag children, parent will move
         dragPropagation
       >
-        <motion.div className={styles.ball} drag='y' />
+        <motion.div className='ball' drag='y' />
       </motion.div>
     </>
   )
@@ -373,7 +369,12 @@ const VideoController = () => {
       className={styles['progress-track']}
       ref={track}
       onPointerDown={startDrag}
-      whileHover={{ height: 4 }}
+      whileHover={{
+        height: 4,
+        transition: {
+          duration: 0,
+        },
+      }}
     >
       <motion.div
         className={styles.thumb}

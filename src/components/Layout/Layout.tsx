@@ -16,13 +16,15 @@ const Layout = ({ isHome = false, children }: LayoutProps) => {
         </div>
       )}
       <div className={styles.main} ref={backButton}>
-        {!isHome && (
-          <div>
-            <Link href={routes[0].path}>←</Link>
-          </div>
-        )}
-        <ToTop top={backButton} />
-        {children}
+        <div className={styles.content}>
+          {!isHome && (
+            <div>
+              <Link href={routes[0].path}>←</Link>
+            </div>
+          )}
+          <ToTop top={backButton} />
+          {children}
+        </div>
       </div>
     </div>
   )
