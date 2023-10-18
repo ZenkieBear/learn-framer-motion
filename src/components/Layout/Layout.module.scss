@@ -42,23 +42,3 @@
     }
   }
 }
-
-.to-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: lighten($color: colors.$clr-second, $amount: 20);
-  transition: all 0.2s ease-in-out;
-
-  svg {
-    fill: white;
-  }
-  &:hover {
-    background-color: darken($color: colors.$clr-second, $amount: 10);
-  }
-}

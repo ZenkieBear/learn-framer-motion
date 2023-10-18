@@ -1,16 +1,16 @@
 import routes from '@/lib/routes'
 import Link from 'next/link'
-import { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
+import { ReactNode, useRef } from 'react'
 import styles from './Layout.module.scss'
-import { motion, Variants } from 'framer-motion'
-import { triagle } from '@/lib/paths'
+import Scroll2TopButton from '@/components/ScrollTopButton/Scroll2TopButton'
+import { MotionValue, useScroll } from 'framer-motion'
 
 type LayoutProps = {
   isHome?: boolean
   children: ReactNode
 }
 const Layout = ({ isHome = false, children }: LayoutProps) => {
-  const backButton = useRef<HTMLDivElement>(null)
+  const ref = useRef(null)
 
   return (
     <div className={styles.container}>
@@ -19,14 +19,14 @@ const Layout = ({ isHome = false, children }: LayoutProps) => {
           <Navbar routes={routes} />
         </div>
       )}
-      <div className={styles.main} ref={backButton}>
+      <div className={styles.main} ref={ref}>
         <div className={styles.content}>
           {!isHome && (
             <div>
               <Link href={routes[0].path}>←</Link>
             </div>
           )}
-          <ToTop top={backButton} />
+          <Scroll2TopButton containerRef={ref} />
           {children}
         </div>
       </div>
@@ -50,68 +50,6 @@ const Navbar = ({ routes }: { routes: Route[] }) => {
         ),
       )}
     </ul>
-  )
-}
-
-const ToTopVariants: Variants = {
-  hide: {
-    rotate: 180,
-    scale: 0,
-    transition: {
-      duration: 0.2,
-      ease: 'easeIn',
-    },
-  },
-  show: {
-    rotate: 0,
-    scale: 1,
-    transition: {
-      duration: 0.05,
-    },
-  },
-}
-const ToTop = ({ top }: { top: RefObject<HTMLElement> }) => {
-  const [isShow, setIsShow] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY
-      if (y > 100) {
-        setIsShow(true)
-      } else {
-        setIsShow(false)
-      }
-    }
-    handleScroll()
-    window.addEventListener('scrollend', handleScroll)
-    return () => window.removeEventListener('scrollend', handleScroll)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-
-  return (
-    <motion.button
-      className={styles['to-top']}
-      variants={ToTopVariants}
-      initial='hide'
-      animate={isShow ? 'show' : 'hide'}
-      whileTap={{ scale: 0.9 }}
-      onClick={scrollToTop}
-    >
-      <svg
-        width={15}
-        height={15}
-        viewBox='0 0 20 20'
-        style={{ rotate: '180deg' }}
-      >
-        <path d={triagle} />
-      </svg>
-    </motion.button>
   )
 }
 
