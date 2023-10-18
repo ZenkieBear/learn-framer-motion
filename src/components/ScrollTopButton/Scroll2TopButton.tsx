@@ -50,7 +50,7 @@ const Scroll2TopButton = ({
     handleScroll()
     container?.addEventListener('scrollend', handleScroll)
     return () => container?.removeEventListener('scrollend', handleScroll)
-  }, [containerRef])
+  }, [containerRef, topDistance])
 
   const scrollToTop = () => {
     containerRef.current?.scrollTo({
