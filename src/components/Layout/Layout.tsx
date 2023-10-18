@@ -1,10 +1,14 @@
 import routes from '@/lib/routes'
 import Link from 'next/link'
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 import styles from './Layout.module.scss'
 import { motion, Variants } from 'framer-motion'
 import { triagle } from '@/lib/paths'
 
+type LayoutProps = {
+  isHome?: boolean
+  children: ReactNode
+}
 const Layout = ({ isHome = false, children }: LayoutProps) => {
   const backButton = useRef<HTMLDivElement>(null)
 
