@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ReactNode, useRef } from 'react'
 import styles from './Layout.module.scss'
 import Scroll2TopButton from '@/components/ScrollTopButton/Scroll2TopButton'
-import { MotionValue, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 type LayoutProps = {
   isHome?: boolean
@@ -22,9 +22,15 @@ const Layout = ({ isHome = false, children }: LayoutProps) => {
       <div className={styles.main} ref={ref}>
         <div className={styles.content}>
           {!isHome && (
-            <div>
+            <motion.span
+              style={{
+                display: 'inline-block',
+              }}
+              whileHover={{ x: 1 }}
+              whileTap={{ x: -4 }}
+            >
               <Link href={routes[0].path}>←</Link>
-            </div>
+            </motion.span>
           )}
           <Scroll2TopButton containerRef={ref} />
           {children}
