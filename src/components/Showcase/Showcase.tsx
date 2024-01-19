@@ -1,5 +1,11 @@
-import { ComponentProps, ReactNode, useState } from 'react'
-import styled from 'styled-components'
+import {
+  ComponentProps,
+  FC,
+  ReactComponentElement,
+  ReactNode,
+  useState,
+} from 'react'
+import styled, { CSSProperties } from 'styled-components'
 import { Refresh } from '../Refresh/Refresh'
 
 const ShowcaseContainer = styled.div`
@@ -21,15 +27,13 @@ const ShowcaseContainer = styled.div`
   }
 `
 
-const Showcase = (
-  props: Omit<ComponentProps<any>, 'refresh'> & { refresh?: boolean },
-) => {
+const Showcase = (props: { refresh: boolean } & ComponentProps<any>) => {
   const [count, setCount] = useState(0)
 
-  let { refresh } = props
+  let { refresh, ...propsWithoutExtra } = props
 
   return (
-    <ShowcaseContainer key={count} {...props}>
+    <ShowcaseContainer key={count} {...propsWithoutExtra} style={props.style}>
       {refresh && <Refresh onClick={() => setCount(count + 1)} />}
       {props.children}
     </ShowcaseContainer>
