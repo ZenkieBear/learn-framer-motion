@@ -1,0 +1,42 @@
+.menu {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  padding: 10px;
+  background: #fff9;
+  border-radius: 15px;
+  transform-origin: top left;
+
+  li {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, .8);
+  }
+}
+
+.ease-track {
+  padding: 5px 0;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    border-radius: 1px;
+    background: linear-gradient(to right, #5E2FB2, #8745ff);
+  }
+  
+  > div {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 4px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+  }
+}
