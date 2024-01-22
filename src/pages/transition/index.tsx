@@ -163,6 +163,7 @@ const ShowTween = () => {
     </Showcase>
   )
 }
+
 const EaseTrack = ({ ease }: { ease: Easing | Easing[] }) => {
   return (
     <li>
@@ -181,6 +182,7 @@ const EaseTrack = ({ ease }: { ease: Easing | Easing[] }) => {
     </li>
   )
 }
+
 const ShowTimes = ({ radius = 100 }: { radius?: number }) => (
   <Showcase refresh={true}>
     <motion.div
