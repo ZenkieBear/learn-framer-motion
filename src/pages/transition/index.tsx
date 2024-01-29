@@ -1,8 +1,18 @@
-import { Easing, Variants, motion } from 'framer-motion'
+import {
+  Easing,
+  Variants,
+  motion,
+  useMotionValue,
+  useTransform,
+  useVelocity,
+} from 'framer-motion'
 import Layout from '@/components/Layout/Layout'
 import Showcase from '@/components/Showcase/Showcase'
 import styles from './index.module.scss'
 import { H1, H2, H3 } from '@/components/Headings/Headings'
+import { useRef } from 'react'
+import { useFollowPointer } from '@/lib/hooks'
+import Spacer from '@/components/Spacer'
 
 const Transition = () => {
   return (
@@ -78,6 +88,82 @@ const Transition = () => {
 
       <H3>times</H3>
       <ShowTimes />
+
+      <H2>Spring</H2>
+      <p>stiffness, damping, or mass</p>
+      <ShowSpring />
+
+      <Spacer />
+      <p>duration + bounce</p>
+      <ShowBounce />
+      <p>
+        <b>Note:</b> bounce and duration will be overridden if stiffness,
+        damping or mass are set.
+      </p>
+
+      <H3>damping</H3>
+      <Showcase refresh={true}>
+        <motion.a
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring', damping: 2 }}
+        >
+          Look at here
+        </motion.a>
+      </Showcase>
+
+      <H3>mass</H3>
+      <Showcase refresh={true}>
+        <svg width={100} height={100}>
+          <filter id='feTurbulence'>
+            <motion.feTurbulence
+              initial={{ baseFrequency: 0.025 }}
+              animate={{ baseFrequency: 1 }}
+              style={{ width: 100, height: 100 }}
+              // the mass larger, the animation look lazier
+              transition={{ type: 'spring', mass: 20 }}
+            />
+          </filter>
+
+          <motion.circle
+            cx='50'
+            cy='50'
+            r='50'
+            filter='url(#feTurbulence)'
+            initial={{ x: 0, y: 0 }}
+          />
+        </svg>
+      </Showcase>
+
+      <H3>stiffness</H3>
+      <Showcase refresh={true}>
+        <motion.section
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring', stiffness: 2000 }}
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
+          praesentium soluta quasi ratione enim, velit iusto modi dolores autem
+          qui doloremque recusandae ut quae corrupti odio ipsa error libero
+          possimus.
+        </motion.section>
+      </Showcase>
+
+      <H3>velocity</H3>
+      <ShowVelocity />
+
+      <H3>restSpeed & restDelta</H3>
+      <Showcase refresh={true}>
+        <motion.div
+          className='ball'
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 10,
+            restSpeed: 8000,
+            restDelta: 50,
+          }}
+        />
+      </Showcase>
     </Layout>
   )
 }
@@ -214,5 +300,74 @@ const ShowTimes = ({ radius = 100 }: { radius?: number }) => (
     />
   </Showcase>
 )
+
+const ShowSpring = () => {
+  const ref = useRef(null)
+  const { x, y } = useFollowPointer(ref)
+
+  return (
+    <Showcase style={{ overflow: 'hidden' }} containerRef={ref}>
+      <motion.div
+        className='ball'
+        style={{
+          width: 150,
+          height: 150,
+          background: `var(--clr-primary)`,
+        }}
+        animate={{ x, y }}
+        transition={{
+          type: 'spring',
+          damping: 3,
+          stiffness: 50,
+          restDelta: 0.001,
+        }}
+      />
+    </Showcase>
+  )
+}
+
+const ShowBounce = () => {
+  return (
+    <Showcase refresh={true}>
+      <motion.div
+        className='ball'
+        initial={{
+          y: -100,
+        }}
+        animate={{ y: 0 }}
+        transition={{
+          type: 'spring',
+          duration: 0.8,
+          bounce: 0.8,
+        }}
+      />
+    </Showcase>
+  )
+}
+
+const ShowVelocity = () => {
+  return (
+    <Showcase refresh={true}>
+      <motion.div
+        className='ball'
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{
+          type: 'spring',
+          velocity: 1000, // faster initial velocity
+        }}
+      />
+      <motion.div
+        className='ball'
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{
+          type: 'spring',
+          velocity: 1, // slower
+        }}
+      />
+    </Showcase>
+  )
+}
 
 export default Transition

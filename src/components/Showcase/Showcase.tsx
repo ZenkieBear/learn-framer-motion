@@ -3,6 +3,7 @@ import {
   FC,
   ReactComponentElement,
   ReactNode,
+  RefObject,
   useState,
 } from 'react'
 import styled, { CSSProperties } from 'styled-components'
@@ -12,13 +13,14 @@ const ShowcaseContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   position: relative;
   width: 100%;
   height: 300px;
   padding: 10px;
   background-color: black;
   border-radius: 10px;
-  gap: 10px;
+  color: white;
 
   & .refresh {
     position: absolute;
@@ -27,13 +29,22 @@ const ShowcaseContainer = styled.div`
   }
 `
 
-const Showcase = (props: { refresh: boolean } & ComponentProps<any>) => {
+const Showcase = (props: {
+  containerRef?: RefObject<HTMLDivElement>
+  style?: CSSProperties
+  refresh?: boolean
+  children?: ReactNode
+}) => {
   const [count, setCount] = useState(0)
 
-  let { refresh, ...propsWithoutExtra } = props
+  let { refresh = false, containerRef, ...propsWithoutExtra } = props
 
   return (
-    <ShowcaseContainer key={count} {...propsWithoutExtra} style={props.style}>
+    <ShowcaseContainer
+      key={count}
+      ref={props.containerRef}
+      {...propsWithoutExtra}
+    >
       {refresh && <Refresh onClick={() => setCount(count + 1)} />}
       {props.children}
     </ShowcaseContainer>
