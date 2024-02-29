@@ -35,6 +35,10 @@ const routes: Route[] = [
         name: 'Scroll',
         path: '/scroll-animations',
       },
+      {
+        name: 'Transition',
+        path: '/transition',
+      },
     ],
   },
 ]

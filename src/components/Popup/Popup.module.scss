@@ -1,0 +1,17 @@
+.popup {
+  position: relative;
+  padding: 10px 0;
+
+  .prompt {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, .6);
+    transform-origin: left bottom;
+  }
+}
