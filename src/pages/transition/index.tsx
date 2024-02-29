@@ -13,6 +13,7 @@ import { H1, H2, H3 } from '@/components/Headings/Headings'
 import { useRef } from 'react'
 import { useFollowPointer } from '@/lib/hooks'
 import Spacer from '@/components/Spacer'
+import Popup from '@/components/Popup/Popup'
 
 const Transition = () => {
   return (
@@ -29,7 +30,6 @@ const Transition = () => {
           }}
         />
       </Showcase>
-
       <H2>Value-spefication</H2>
       <Showcase refresh={true} style={{ background: '#22dddd' }}>
         <motion.div
@@ -49,17 +49,14 @@ const Transition = () => {
           }}
         />
       </Showcase>
-
       <H2>Orchestration</H2>
       <p>
         delayChildren, staggerChildren, staggerDirection, repeat, repeatType,
         and repeatDelay
       </p>
       <ShowOrchestration />
-
       <H2>Tween</H2>
       <ShowTween />
-
       <H3>ease</H3>
       <Showcase refresh={true}>
         <ul className={styles.eases}>
@@ -76,7 +73,6 @@ const Transition = () => {
           <EaseTrack ease='anticipate' />
         </ul>
       </Showcase>
-
       <H3>from</H3>
       <Showcase refresh={true}>
         <motion.div
@@ -85,14 +81,11 @@ const Transition = () => {
           transition={{ from: 90, duration: 2 }} // from 90deg to 180deg, cost 2 seconds.
         />
       </Showcase>
-
       <H3>times</H3>
       <ShowTimes />
-
       <H2>Spring</H2>
       <p>stiffness, damping, or mass</p>
       <ShowSpring />
-
       <Spacer />
       <p>duration + bounce</p>
       <ShowBounce />
@@ -100,7 +93,6 @@ const Transition = () => {
         <b>Note:</b> bounce and duration will be overridden if stiffness,
         damping or mass are set.
       </p>
-
       <H3>damping</H3>
       <Showcase refresh={true}>
         <motion.a
@@ -110,7 +102,6 @@ const Transition = () => {
           Look at here
         </motion.a>
       </Showcase>
-
       <H3>mass</H3>
       <Showcase refresh={true}>
         <svg width={100} height={100}>
@@ -133,7 +124,6 @@ const Transition = () => {
           />
         </svg>
       </Showcase>
-
       <H3>stiffness</H3>
       <Showcase refresh={true}>
         <motion.section
@@ -146,10 +136,8 @@ const Transition = () => {
           possimus.
         </motion.section>
       </Showcase>
-
       <H3>velocity</H3>
       <ShowVelocity />
-
       <H3>restSpeed & restDelta</H3>
       <Showcase refresh={true}>
         <motion.div
@@ -162,6 +150,122 @@ const Transition = () => {
             restSpeed: 8000,
             restDelta: 50,
           }}
+        />
+      </Showcase>
+      <H2>Inertia</H2>
+      <Showcase refresh>
+        <motion.div
+          className='radial-rect'
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'inertia', velocity: 100 }}
+        />
+        <motion.div
+          className='radial-rect'
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'inertia', velocity: 400 }}
+        />
+        <motion.div
+          className='radial-rect'
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'inertia', velocity: 800 }}
+        />
+      </Showcase>
+      <H3>modifyTarget</H3>
+      <Showcase
+        refresh
+        style={{
+          padding: 0,
+          display: 'block',
+          background:
+            'repeating-linear-gradient(0deg, transparent 0, transparent 99px, white 100px), repeating-linear-gradient(90deg, transparent 0, transparent 99px, white 100px) black',
+          // background: 'repeating-linear-gradient(0deg, transparent 0, black 99px, #fff 100px), repeating-linear-gradient(90deg, transparent 0, var(--clr-primary), #ebedff 100px) black'
+        }}
+      >
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{
+            power: 0,
+            modifyTarget: target => Math.round(target / 100) * 100,
+            timeConstant: 100,
+          }}
+        />
+      </Showcase>
+      <H3>bounceStiffness</H3>
+      <Showcase refresh>
+        <p>Drag them away</p>
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{
+            min: 0,
+            max: 100,
+          }}
+        />
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{
+            min: 0,
+            max: 100,
+            bounceStiffness: 1000,
+          }}
+        />
+      </Showcase>
+      <H3>bounceDamping</H3>
+      <Showcase refresh>
+        <p>Drag them away</p>
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{
+            min: 0,
+            max: 100,
+          }}
+        />
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{
+            min: 0,
+            max: 100,
+            bounceDamping: 8,
+          }}
+        />
+      </Showcase>
+      <H3>power</H3>
+      <Showcase refresh>
+        <p>Drag them away</p>
+        <motion.div className='ball' drag dragTransition={{ power: 1 }} />
+        <motion.div className='ball' drag dragTransition={{ power: 0.2 }} />
+      </Showcase>
+      <H3>timeConstant</H3>
+      <Showcase refresh>
+        <p>Drag them away</p>
+        <motion.div className='ball' drag />
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{ timeConstant: 200 }}
+        />
+      </Showcase>
+      <H3>restDelta</H3>
+      End the animation if the distance to the animation target is below this
+      value.
+      <Showcase refresh>
+        <p>Drag them away</p>
+        <motion.div className='ball' drag />
+        <motion.div className='ball' drag dragTransition={{ restDelta: 100 }} />
+      </Showcase>
+      <H3>min & max</H3>
+      <Showcase>
+        <motion.div
+          className='ball'
+          drag
+          dragTransition={{ min: -100, max: 100 }}
         />
       </Showcase>
     </Layout>
