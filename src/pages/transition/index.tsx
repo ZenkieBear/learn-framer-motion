@@ -1,5 +1,6 @@
 import {
   Easing,
+  TargetAndTransition,
   Variants,
   motion,
   useMotionValue,
@@ -10,7 +11,7 @@ import Layout from '@/components/Layout/Layout'
 import Showcase from '@/components/Showcase/Showcase'
 import styles from './index.module.scss'
 import { H1, H2, H3 } from '@/components/Headings/Headings'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useFollowPointer } from '@/lib/hooks'
 import Spacer from '@/components/Spacer'
 import Popup from '@/components/Popup/Popup'
@@ -268,6 +269,8 @@ const Transition = () => {
           dragTransition={{ min: -100, max: 100 }}
         />
       </Showcase>
+      <H2>Miscellaneous</H2>
+      <Miscellaneous />
     </Layout>
   )
 }
@@ -470,6 +473,32 @@ const ShowVelocity = () => {
           velocity: 1, // slower
         }}
       />
+    </Showcase>
+  )
+}
+
+const show: TargetAndTransition = {
+  opacity: 1,
+  display: 'block',
+}
+const hide: TargetAndTransition = {
+  opacity: 0,
+  transition: { duration: 1 },
+  transitionEnd: { display: 'none' },
+}
+
+const Miscellaneous = () => {
+  const [isVisible, setIsVisible] = useState(true)
+
+  return (
+    <Showcase>
+      <motion.div className='ball' animate={isVisible ? show : hide} />
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setIsVisible(!isVisible)}
+      >
+        {isVisible ? 'Hide' : 'Show'}
+      </motion.button>
     </Showcase>
   )
 }
